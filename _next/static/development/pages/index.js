@@ -19,12 +19,13 @@ var _jsxFileName = "/Users/skinch/personal/components/CustomLink.js";
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var href = _ref.href,
       children = _ref.children;
+  console.log(href);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: href,
     as: "".concat( false ? undefined : '').concat(href),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 6
     },
     __self: this
   }, children);
