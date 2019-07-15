@@ -1,8 +1,8 @@
 module.exports = {
     exportPathMap: function () {
         return {
-            '/': { page: '/' }
+            '/': { page: '/' },
+            '/linked-page': { page: '/linked-page'}
         }
-    },
-    assetPrefix: process.env.NODE_ENV === 'production' ? '/personal' : '',
+    }
 }

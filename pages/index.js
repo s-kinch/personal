@@ -1,4 +1,4 @@
-import Link from '../components/CustomLink';
+import Link from 'next/link'
 
 const Index = () => (
     <div>
