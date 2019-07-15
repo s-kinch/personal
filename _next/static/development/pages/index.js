@@ -21,7 +21,7 @@ var _jsxFileName = "/Users/skinch/personal/components/CustomLink.js";
       children = _ref.children;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: href,
-    as:  false ? undefined : '',
+    as: "".concat( false ? undefined : '').concat(href),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 4
