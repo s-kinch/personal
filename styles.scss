@@ -20,28 +20,34 @@ body {
     text-align: center;
 }
 
-h2 {
-    font-family: $martel;
-    font-size: 1.75rem;
-    margin: 0 0 1rem 0;
-    color: $hotpink;
-    a {
-        text-decoration: none;
-        &:visited {
-            color: $hotpink;
+.post {
+    &:not(:first-child) {
+        margin-top: 5rem;
+    }
+
+    h2 {
+        font-family: $martel;
+        font-size: 1.75rem;
+        margin: 0 0 1rem 0;
+        color: $hotpink;
+        a {
+            text-decoration: none;
+            &:visited {
+                color: $hotpink;
+            }
         }
     }
-}
 
-h3 {
-    font-family: $roboto;
-    font-size: 1rem;
-    font-weight: 100;
-    color: $gray;
-    margin: 0;
-    text-align: center;
-}
+    h3 {
+        font-family: $roboto;
+        font-size: 1rem;
+        font-weight: 100;
+        color: $gray;
+        margin: 0;
+        text-align: center;
+    }
 
-iframe > body {
-    padding: 0.25rem;
+    iframe > body {
+        padding: 0.25rem;
+    }
 }
