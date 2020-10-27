@@ -1,0 +1,47 @@
+// Font variables
+$martel: 'Martel', serif;
+$roboto: 'Roboto', sans-serif;
+
+// Color variables
+$hotpink: #f542ad;
+$gray: rgba(17, 17, 17, 0.7);
+$offwhite: #f7f5f6;
+$white: #ffffff;
+
+html {
+    background-color: $offwhite;
+}
+
+body {
+    font-family: $roboto;
+    padding: 20px 20px 60px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-family: $martel;
+    font-size: 1.75rem;
+    margin: 0 0 1rem 0;
+    color: $hotpink;
+    a {
+        text-decoration: none;
+        &:visited {
+            color: $hotpink;
+        }
+    }
+}
+
+h3 {
+    font-family: $roboto;
+    font-size: 1rem;
+    font-weight: 100;
+    color: $gray;
+    margin: 0;
+    text-align: center;
+}
+
+iframe > body {
+    padding: 0.25rem;
+}
