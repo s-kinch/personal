@@ -28,11 +28,13 @@ body {
     h2 {
         font-family: $martel;
         font-size: 1.75rem;
-        margin: 0 0 1rem 0;
+        line-height: 1.5rem;
+        margin: 1rem 0;
         color: $hotpink;
         a {
             text-decoration: none;
-            &:visited {
+            &:visited,
+            &:active {
                 color: $hotpink;
             }
         }
