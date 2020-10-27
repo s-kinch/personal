@@ -33,10 +33,7 @@ body {
         color: $hotpink;
         a {
             text-decoration: none;
-            &:visited,
-            &:active {
-                color: $hotpink;
-            }
+            color: inherit;
         }
     }
 
