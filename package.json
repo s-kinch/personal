@@ -1,23 +1,23 @@
 {
-  "name": "personal",
-  "version": "1.0.0",
-  "description": "Sinclair's personal site wooooooo",
-  "main": "index.js",
-  "scripts": {
-    "dev": "next",
-    "build": "next build && next export",
-    "start": "next start",
-    "export": "next export",
-    "git": "git add . && git commit -m",
-    "postgit": "git push --all",
-    "deploy": "npm run build && touch out/.nojekyll && touch out/CNAME && echo \"sinclairkinch.com\" >> out/CNAME && git add out && git commit -m",
-    "postdeploy": "git subtree push --prefix=out origin gh-pages && git push"
-  },
-  "keywords": [],
-  "author": "Sinclair Kinch",
-  "dependencies": {
-    "next": "^9.3.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  }
+    "name": "personal",
+    "version": "1.0.0",
+    "description": "Sinclair's personal site wooooooo",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build && next export",
+        "start": "next start",
+        "export": "next export",
+        "git": "git add . && git commit -m",
+        "postgit": "git push --all",
+        "deploy": "npm run build && touch out/.nojekyll && touch out/CNAME && echo \"sinclairkinch.com\" >> out/CNAME && git add out && git commit -m",
+        "postdeploy": "git subtree push --prefix=out origin gh-pages && git push"
+    },
+    "keywords": [],
+    "author": "Sinclair Kinch",
+    "dependencies": {
+        "next": "^9.3.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    }
 }
