@@ -1,6 +1,7 @@
 // Font variables
 $martel: 'Martel', serif;
 $roboto: 'Roboto', sans-serif;
+$inter: 'Inter', sans-serif;
 
 // Color variables
 $hotpink: #f542ad;
@@ -13,7 +14,8 @@ html {
 }
 
 body {
-    font-family: $roboto;
+    // font-family: $roboto;
+    font-family: $martel;
     padding: 20px 20px 60px;
     max-width: 680px;
     margin: 0 auto;
@@ -38,12 +40,13 @@ body {
     }
 
     h3 {
-        font-family: $roboto;
+        font-family: $inter;
         font-size: 1rem;
         font-weight: 100;
         color: $gray;
         margin: 0;
         text-align: center;
+        text-transform: uppercase;
     }
 
     iframe > body {
