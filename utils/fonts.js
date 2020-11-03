@@ -5,11 +5,19 @@ const fonts = () => {
         {
             title: 'Inter',
             href:
-                'https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700',
+                'https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500',
         },
         {
             title: 'Martel',
             href: 'https://fonts.googleapis.com/css2?family=Martel:wght@400',
+        },
+        {
+            title: 'Questrial',
+            href: 'https://fonts.googleapis.com/css2?family=Questrial:wght@400',
+        },
+        {
+            title: 'Lora',
+            href: 'https://fonts.googleapis.com/css2?family=Lora:wght@400',
         },
     ]
 

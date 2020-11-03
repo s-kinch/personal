@@ -1,5 +1,4 @@
 import NextHead from 'next/head'
-// import GoogleFonts from 'next-google-fonts'
 
 const Head = ({ children, title }) => (
     <React.Fragment>

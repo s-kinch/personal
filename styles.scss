@@ -2,24 +2,53 @@
 $martel: 'Martel', serif;
 $roboto: 'Roboto', sans-serif;
 $inter: 'Inter', sans-serif;
+$questrial: 'Questrial', sans-serif;
+$lora: 'Lora', serif;
 
 // Color variables
 $hotpink: #f542ad;
+$littlelighterpink: #df69b7;
+$green: #8cf5a2;
+$darkergreen: #0a9447;
+$gooddarkgray: #222222;
+$lightgray: #dddcdd;
 $gray: rgba(17, 17, 17, 0.7);
 $offwhite: #f7f5f6;
 $white: #ffffff;
+$black: #000000;
 
 html {
-    background-color: $offwhite;
+    background-color: $white;
 }
 
 body {
     // font-family: $roboto;
     font-family: $martel;
-    padding: 20px 20px 60px;
-    max-width: 680px;
+    padding: 0px 20px 60px 20px;
     margin: 0 auto;
     text-align: center;
+
+    ::selection {
+        // color: $lightlightpink;
+        background: $littlelighterpink;
+        // color: $offwhite;
+    }
+}
+
+nav {
+    h1 {
+        color: $black;
+        font-family: $inter;
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 0;
+        display: flex;
+    }
+}
+
+.page-content {
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 .post {
@@ -28,11 +57,14 @@ body {
     }
 
     h2 {
-        font-family: $martel;
+        // font-family: $martel;
+        font-family: $inter;
         font-size: 1.75rem;
+        font-weight: 500;
         line-height: 1.5rem;
-        margin: 1rem 0;
-        color: $hotpink;
+        margin: 1rem 0 0.5rem 0;
+        // color: $hotpink;
+        color: $black;
         a {
             text-decoration: none;
             color: inherit;
@@ -41,8 +73,8 @@ body {
 
     h3 {
         font-family: $inter;
-        font-size: 1rem;
-        font-weight: 100;
+        font-size: 0.8rem;
+        font-weight: 200;
         color: $gray;
         margin: 0;
         text-align: center;
