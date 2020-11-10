@@ -1,11 +1,11 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import ReactHtmlParser, {
-    processNodes,
-    convertNodeToElement,
-} from 'react-html-parser'
+// import ReactHtmlParser, {
+//     processNodes,
+//     convertNodeToElement,
+// } from 'react-html-parser'
 
 const Post = ({ slug, date, title, tags, body, fold }) => {
     const [puzzOpen, setPuzzOpen] = useState(false)
@@ -52,11 +52,13 @@ const Post = ({ slug, date, title, tags, body, fold }) => {
     return (
         <div className="post">
             <h2>
-                {/* <Link href={`/blog/${slug}`}>
-                <a> */}
-                {title}
-                {/* </a>
-                </Link> */}
+                {fold ? (
+                    <Link href={`/blog/${slug}`}>
+                        <a>{title}</a>
+                    </Link>
+                ) : (
+                    title
+                )}
             </h2>
             {date && (
                 <h3>
