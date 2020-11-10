@@ -26,7 +26,8 @@ body {
     font-family: $martel;
     padding: 0px 20px 60px 20px;
     margin: 0 auto;
-    text-align: center;
+    // text-align: center;
+    max-width: 680px;
 
     ::selection {
         // color: $lightlightpink;
@@ -36,6 +37,8 @@ body {
 }
 
 nav {
+    padding: 3rem 0 2rem 0;
+
     h1 {
         color: $black;
         font-family: $inter;
@@ -43,12 +46,14 @@ nav {
         font-weight: 400;
         margin: 0;
         display: flex;
-    }
-}
+        position: relative;
 
-.page-content {
-    max-width: 680px;
-    margin: 0 auto;
+        .emdash {
+            position: absolute;
+            left: 0;
+            transform: translateX(calc(-100% - 0.25rem));
+        }
+    }
 }
 
 .post {
@@ -57,13 +62,11 @@ nav {
     }
 
     h2 {
-        // font-family: $martel;
         font-family: $inter;
         font-size: 1.75rem;
         font-weight: 500;
         line-height: 1.5rem;
         margin: 1rem 0 0.5rem 0;
-        // color: $hotpink;
         color: $black;
         a {
             text-decoration: none;
@@ -77,11 +80,26 @@ nav {
         font-weight: 200;
         color: $gray;
         margin: 0;
-        text-align: center;
         text-transform: uppercase;
     }
 
     iframe > body {
         padding: 0.25rem;
+    }
+
+    .puzzbutton {
+        background-color: $littlelighterpink;
+        padding: 0.5rem 1rem;
+        margin: 0 0.25rem 0.5rem 0.25rem;
+        color: $offwhite;
+        border: none;
+        border-radius: 1rem;
+        transition: transform 0.5s;
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                transform: translateY(2px);
+                cursor: pointer;
+            }
+        }
     }
 }

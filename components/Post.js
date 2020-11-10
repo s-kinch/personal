@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
@@ -7,14 +7,8 @@ import ReactHtmlParser, {
     convertNodeToElement,
 } from 'react-html-parser'
 
-const Post = ({ slug, date, title, tags, body }) => {
-    const iframeRef = useRef()
-    useEffect(() => {
-        if (iframeRef.current) {
-            console.log('here')
-            iframeRef.current.focus()
-        }
-    }, [])
+const Post = ({ slug, date, title, tags, body, fold }) => {
+    const [puzzOpen, setPuzzOpen] = useState(false)
 
     const options = {
         renderNode: {
@@ -25,12 +19,28 @@ const Post = ({ slug, date, title, tags, body }) => {
                             c.slice(0, 7) !== '<iframe' ? (
                                 <Fragment key={i}>{c}</Fragment>
                             ) : (
-                                <span
-                                    key={i}
-                                    ref={iframeRef}
-                                    className="puzzleme"
-                                    dangerouslySetInnerHTML={{ __html: c }}
-                                />
+                                <Fragment key={i}>
+                                    {fold && (
+                                        <button
+                                            className="puzzbutton"
+                                            onClick={() => {
+                                                setPuzzOpen(!puzzOpen)
+                                            }}
+                                        >
+                                            {puzzOpen ? 'close' : 'play'}
+                                        </button>
+                                    )}
+                                    <span
+                                        className={`puzzleme ${
+                                            puzzOpen ? 'puzzOpen' : 'puzzClosed'
+                                        }`}
+                                        {...((!fold || puzzOpen) && {
+                                            dangerouslySetInnerHTML: {
+                                                __html: c,
+                                            },
+                                        })}
+                                    />
+                                </Fragment>
                             )
                         )}
                     </p>

@@ -16,7 +16,7 @@ const Index = ({ posts }) => {
             </Head>
             <div className="posts">
                 {posts.map((p) => {
-                    return <Post key={p.slug} {...p} />
+                    return <Post key={p.slug} {...p} fold />
                 })}
             </div>
         </Layout>

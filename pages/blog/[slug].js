@@ -9,7 +9,7 @@ export default function Slug({ post }) {
             <Head>
                 <title>{post.fields.title}</title>
             </Head>
-            <Post {...post.fields} />
+            <Post {...post.fields} fold={false} />
         </Layout>
     )
 }
