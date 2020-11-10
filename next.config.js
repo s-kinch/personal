@@ -5,7 +5,6 @@ const next_config = {
     exportPathMap: function () {
         return {
             '/': { page: '/' },
-            '/blog': { page: '/' },
         }
     },
     // webpack: (config) => {
