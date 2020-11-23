@@ -10,6 +10,8 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 const Post = ({ slug, date, title, tags, body, fold }) => {
     const [puzzOpen, setPuzzOpen] = useState(false)
 
+    console.log({ body })
+
     const options = {
         renderNode: {
             [BLOCKS.PARAGRAPH]: (node, children) => {
@@ -46,6 +48,40 @@ const Post = ({ slug, date, title, tags, body, fold }) => {
                     </p>
                 )
             },
+            [BLOCKS.EMBEDDED_ASSET]: (node) => {
+                const { title, description, file } = node.data.target.fields
+                const mimeType = file.contentType
+                const mimeGroup = mimeType.split('/')[0]
+
+                switch (mimeGroup) {
+                    case 'image':
+                        return (
+                            <img
+                                title={title || null}
+                                alt={description || null}
+                                src={file.url}
+                            />
+                        )
+                    case 'application':
+                        return (
+                            <a alt={description || null} href={file.url}>
+                                {title || file.details.fileName}
+                            </a>
+                        )
+                    default:
+                        return (
+                            <span
+                                style={{
+                                    backgroundColor: 'red',
+                                    color: 'white',
+                                }}
+                            >
+                                {' '}
+                                {mimeType} embedded asset{' '}
+                            </span>
+                        )
+                }
+            },
         },
     }
 
@@ -68,10 +104,13 @@ const Post = ({ slug, date, title, tags, body, fold }) => {
                         month: 'long',
                         day: 'numeric',
                     })}
+                    {tags &&
+                        tags.map((tag) => <span className="tag">{tag}</span>)}
                 </h3>
             )}
-            <div>{documentToReactComponents(body, options)}</div>
-            <div className="tags">{tags && tags.join(', ')}</div>
+            <div className="post-body">
+                {documentToReactComponents(body, options)}
+            </div>
         </div>
     )
 }
