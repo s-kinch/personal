@@ -10,7 +10,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 const Post = ({ slug, date, title, tags, body, fold }) => {
     const [puzzOpen, setPuzzOpen] = useState(false)
 
-    console.log({ body })
+    // console.log({ body })
 
     const options = {
         renderNode: {
@@ -105,7 +105,11 @@ const Post = ({ slug, date, title, tags, body, fold }) => {
                         day: 'numeric',
                     })}
                     {tags &&
-                        tags.map((tag) => <span className="tag">{tag}</span>)}
+                        tags.map((tag, i) => (
+                            <span className="tag" key={i}>
+                                {tag}
+                            </span>
+                        ))}
                 </h3>
             )}
             <div className="post-body">

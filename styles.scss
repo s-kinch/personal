@@ -16,6 +16,10 @@ $gray: rgba(17, 17, 17, 0.7);
 $offwhite: #f7f5f6;
 $white: #ffffff;
 $black: #000000;
+$offblack: #0c1618;
+$warmblackquestionmark: #0c1618;
+$teagreen: #cae7b9;
+$xiketic: #1b1725;
 
 html {
     background-color: $white;
@@ -40,24 +44,32 @@ nav {
     padding: 3rem 0 2rem 0;
 
     h1 {
-        color: $black;
-        font-family: $inter;
-        font-size: 3rem;
-        font-weight: 400;
         margin: 0;
-        display: flex;
-        position: relative;
+        // color: $black;
+        // font-family: $inter;
+        // font-size: 3rem;
+        // font-weight: 400;
+        // display: flex;
+        // position: relative;
 
-        a {
-            color: inherit;
-            text-decoration: none;
+        // a {
+        // color: inherit;
+        // text-decoration: none;
+        // }
+
+        img {
+            width: 100%;
+            height: auto;
+            &:hover {
+                cursor: pointer;
+            }
         }
 
-        .emdash {
-            position: absolute;
-            left: 0;
-            transform: translateX(calc(-100% - 0.25rem));
-        }
+        // .emdash {
+        //     position: absolute;
+        //     left: 0;
+        //     transform: translateX(calc(-100% - 0.25rem));
+        // }
     }
 }
 
@@ -72,7 +84,7 @@ nav {
         font-weight: 500;
         line-height: 1.5rem;
         margin: 1rem 0 0.5rem 0;
-        color: $black;
+        color: $xiketic;
         a {
             text-decoration: none;
             color: inherit;
