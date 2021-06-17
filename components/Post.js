@@ -7,10 +7,8 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 //     convertNodeToElement,
 // } from 'react-html-parser'
 
-const Post = ({ slug, date, title, tags, body, fold }) => {
+const Post = ({ slug, date, title, tags, body, puz, fold }) => {
     const [puzzOpen, setPuzzOpen] = useState(false)
-
-    // console.log({ body })
 
     const options = {
         renderNode: {
@@ -31,6 +29,16 @@ const Post = ({ slug, date, title, tags, body, fold }) => {
                                         >
                                             {puzzOpen ? 'close' : 'play'}
                                         </button>
+                                    )}
+                                    {puz?.fields?.file?.url && (
+                                        <a
+                                            href={`https:${puz.fields.file.url}`}
+                                            download
+                                        >
+                                            <button className="puzzbutton">
+                                                .puz
+                                            </button>
+                                        </a>
                                     )}
                                     <span
                                         className={`puzzleme ${
