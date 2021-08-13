@@ -1,60 +1,36 @@
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { BLOCKS } from '@contentful/rich-text-types'
+import {
+    BLOCKS,
+    MARKS,
+    // INLINES,
+} from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-// import ReactHtmlParser, {
-//     processNodes,
-//     convertNodeToElement,
-// } from 'react-html-parser'
 
-const Post = ({ slug, date, title, tags, body, puz, fold }) => {
+const Bold = ({ children }) => <span className="bold">{children}</span>
+// const Text = ({ children }) => <p className="align-center">{children}</p>
+
+const Post = ({ slug, date, title, tags, body, puz, appletEmbed, fold }) => {
     const [puzzOpen, setPuzzOpen] = useState(false)
 
+    const foldIndex = body?.content?.findIndex(
+        ({ nodeType }) => nodeType === 'hr'
+    )
+
     const options = {
+        renderMark: {
+            [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+        },
         renderNode: {
-            [BLOCKS.PARAGRAPH]: (node, children) => {
-                return (
+            [BLOCKS.HR]: (node) => {
+                // Don't show 'read more' if it's allll under the fold
+                return fold && foldIndex > 0 ? (
                     <p>
-                        {children.map((c, i) =>
-                            c.slice(0, 7) !== '<iframe' ? (
-                                <Fragment key={i}>{c}</Fragment>
-                            ) : (
-                                <Fragment key={i}>
-                                    {fold && (
-                                        <button
-                                            className="puzzbutton"
-                                            onClick={() => {
-                                                setPuzzOpen(!puzzOpen)
-                                            }}
-                                        >
-                                            {puzzOpen ? 'close' : 'play'}
-                                        </button>
-                                    )}
-                                    {puz?.fields?.file?.url && (
-                                        <a
-                                            href={`https:${puz.fields.file.url}`}
-                                            download
-                                        >
-                                            <button className="puzzbutton">
-                                                .puz
-                                            </button>
-                                        </a>
-                                    )}
-                                    <span
-                                        className={`puzzleme ${
-                                            puzzOpen ? 'puzzOpen' : 'puzzClosed'
-                                        }`}
-                                        {...((!fold || puzzOpen) && {
-                                            dangerouslySetInnerHTML: {
-                                                __html: c,
-                                            },
-                                        })}
-                                    />
-                                </Fragment>
-                            )
-                        )}
+                        <Link href={`/blog/${slug}`}>
+                            <a>read more</a>
+                        </Link>
                     </p>
-                )
+                ) : null
             },
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
                 const { title, description, file } = node.data.target.fields
@@ -93,6 +69,8 @@ const Post = ({ slug, date, title, tags, body, puz, fold }) => {
         },
     }
 
+    console.log({ body })
+
     return (
         <div className="post">
             <h2>
@@ -121,7 +99,48 @@ const Post = ({ slug, date, title, tags, body, puz, fold }) => {
                 </h3>
             )}
             <div className="post-body">
-                {documentToReactComponents(body, options)}
+                {body &&
+                    documentToReactComponents(
+                        fold
+                            ? {
+                                  ...body,
+                                  content:
+                                      foldIndex > -1
+                                          ? body.content.slice(0, foldIndex + 1)
+                                          : body.content,
+                              }
+                            : body,
+                        options
+                    )}
+            </div>
+            <div className="puzzbuttons">
+                {fold && appletEmbed && (
+                    <button
+                        className="puzzbutton"
+                        onClick={() => {
+                            setPuzzOpen(!puzzOpen)
+                        }}
+                    >
+                        {puzzOpen ? 'close' : 'play'}
+                    </button>
+                )}
+                {puz?.fields?.file?.url && (
+                    <a href={`https:${puz.fields.file.url}`} download>
+                        <button className="puzzbutton">.puz</button>
+                    </a>
+                )}
+                {appletEmbed && (
+                    <span
+                        className={`puzzleme ${
+                            puzzOpen ? 'puzzOpen' : 'puzzClosed'
+                        }`}
+                        {...((!fold || puzzOpen) && {
+                            dangerouslySetInnerHTML: {
+                                __html: appletEmbed,
+                            },
+                        })}
+                    />
+                )}
             </div>
         </div>
     )

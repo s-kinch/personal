@@ -20,6 +20,8 @@ $offblack: #0c1618;
 $warmblackquestionmark: #0c1618;
 $teagreen: #cae7b9;
 $xiketic: #1b1725;
+$alabaster: #f9f8f8;
+$mamba: #8d7e8e;
 
 html {
     background-color: $white;
@@ -94,6 +96,7 @@ nav {
     h3 {
         font-family: $inter;
         font-size: 0.8rem;
+        line-height: 1rem;
         font-weight: 200;
         color: $gray;
         margin: 0;
@@ -101,15 +104,6 @@ nav {
 
         span.tag {
             text-transform: lowercase;
-            // text-decoration: underline;
-            // font-style: italic;
-            // background: $black;
-            // color: $white;
-            // margin: 0 0.25rem;
-
-            // &:first-child {
-            //     margin-left: 1rem;
-            // }
 
             &::before {
                 content: '💩 ';
@@ -127,29 +121,46 @@ nav {
             margin: 0.5rem 0;
         }
         img {
-            // display: block;
-            // margin-left: auto;
-            // margin-right: auto;
             max-width: 100%;
+        }
+
+        font-family: $inter;
+        font-size: 0.9rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        margin: 1rem 0;
+        color: $xiketic;
+
+        a {
+            text-decoration: underline;
+            color: inherit;
         }
     }
 
     .post-body > *:first-child {
-        margin-top: 1rem;
+        margin-top: 0;
     }
 
-    .puzzbutton {
-        background-color: $littlelighterpink;
-        padding: 0.5rem 1rem;
-        margin: 0 0.25rem 0.5rem 0;
-        color: $offwhite;
-        border: none;
-        border-radius: 1rem;
-        transition: transform 0.5s;
-        @media (hover: hover) and (pointer: fine) {
-            &:hover {
-                transform: translateY(2px);
-                cursor: pointer;
+    .post-body > *:last-child {
+        margin-bottom: 0;
+    }
+
+    .puzzbuttons {
+        // margin-bottom: 1rem;
+
+        .puzzbutton {
+            background-color: $littlelighterpink;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem 1rem 0;
+            color: $offwhite;
+            border: none;
+            border-radius: 1rem;
+            transition: transform 0.5s;
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    transform: translateY(2px);
+                    cursor: pointer;
+                }
             }
         }
     }
