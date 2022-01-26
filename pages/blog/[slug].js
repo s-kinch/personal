@@ -5,12 +5,14 @@ import { fetchBlogPosts, fetchBlogPost } from '@utils/contentfulPosts'
 
 export default function Slug({ post }) {
     return (
-        <Layout>
-            <Head>
-                <title>{post.fields.title}</title>
-            </Head>
-            <Post {...post.fields} fold={false} />
-        </Layout>
+        <div className="blog">
+            <Layout>
+                <Head>
+                    <title>{post.fields.title}</title>
+                </Head>
+                <Post {...post.fields} fold={false} />
+            </Layout>
+        </div>
     )
 }
 

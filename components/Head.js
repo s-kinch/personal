@@ -40,8 +40,6 @@ const Head = ({ children, title }) => {
     console.log(grid)
     console.table(clues)
 
-    // window.PLAY = `\nACROSS\n2. garbage\n\nDOWN\n3. trash\n`
-
     return (
         <React.Fragment>
             <NextHead>

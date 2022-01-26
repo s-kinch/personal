@@ -10,16 +10,18 @@ const Index = ({ posts }) => {
         fonts()
     }, [])
     return (
-        <Layout>
-            <Head>
-                <title>Sinclair Kinch</title>
-            </Head>
-            <div className="posts">
-                {posts.map((p) => {
-                    return <Post key={p.slug} {...p} fold />
-                })}
-            </div>
-        </Layout>
+        <div className="blog">
+            <Layout>
+                <Head>
+                    <title>Sinclair Kinch</title>
+                </Head>
+                <div className="posts">
+                    {posts.map((p) => {
+                        return <Post key={p.slug} {...p} fold />
+                    })}
+                </div>
+            </Layout>
+        </div>
     )
 }
 

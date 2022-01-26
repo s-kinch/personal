@@ -30,16 +30,21 @@ html {
 body {
     // font-family: $roboto;
     font-family: $martel;
-    padding: 0px 20px 60px 20px;
-    margin: 0 auto;
+    padding: 0;
+    margin: 0;
     // text-align: center;
-    max-width: 680px;
 
     ::selection {
         // color: $lightlightpink;
         background: $littlelighterpink;
         // color: $offwhite;
     }
+}
+
+.blog {
+    padding: 0px 20px 60px 20px;
+    margin: 0 auto;
+    max-width: 680px;
 }
 
 nav {

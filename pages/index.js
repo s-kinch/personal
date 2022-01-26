@@ -1,39 +1,29 @@
 import { useEffect } from 'react'
+import Link from 'next/link'
 import Head from '@components/head'
 import Layout from '@components/Layout'
-import Post from '@components/Post'
 import fonts from '@utils/fonts'
-import { fetchBlogPosts } from '@utils/contentfulPosts'
 
-const Index = ({ posts }) => {
+const Index = () => {
     useEffect(() => {
         fonts()
     }, [])
     return (
-        <Layout>
+        <div className="index blog">
             <Head>
                 <title>Sinclair Kinch</title>
             </Head>
-            <div className="posts">
-                {posts.map((p) => {
-                    return <Post key={p.slug} {...p} fold />
-                })}
-            </div>
-        </Layout>
+            <h1>hi!</h1>
+            <ul>
+                <li>
+                    <Link href="/blog">crossword blog</Link>
+                </li>
+                <li>
+                    <Link href="/lettercounty">lettercounty</Link>
+                </li>
+            </ul>
+        </div>
     )
-}
-
-export async function getStaticProps() {
-    const res = await fetchBlogPosts()
-    const posts = await res.map((p) => {
-        return p.fields
-    })
-
-    return {
-        props: {
-            posts,
-        },
-    }
 }
 
 export default Index

@@ -69,8 +69,6 @@ const Post = ({ slug, date, title, tags, body, puz, appletEmbed, fold }) => {
         },
     }
 
-    console.log({ body })
-
     return (
         <div className="post">
             <h2>

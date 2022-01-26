@@ -1,0 +1,193 @@
+.lettercounty {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    padding: 5vmin;
+    box-sizing: border-box;
+}
+
+.App-header {
+    position: relative;
+    font-size: calc(10px + 2vmin);
+    color: #332288;
+    background-color: #ffb000;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.App-header span {
+    padding-left: 2vmin;
+    text-align: left;
+}
+
+.App-header span.small {
+    font-size: calc(5px + 2vmin);
+}
+
+.buttons-container {
+    display: flex;
+}
+
+.button-container {
+    display: inline-block;
+    padding: 2vmin;
+    width: calc(10px + 2vmin);
+    height: calc(10px + 2vmin);
+    position: relative;
+}
+
+#contentPasteContainer {
+    background-color: #fe6100;
+}
+
+#undoContainer {
+    background-color: #648fff;
+}
+#redoContainer {
+    background-color: #785ef0;
+}
+
+@media (hover: hover) {
+    .button-container:hover {
+        cursor: pointer;
+        transform: translate(4px, -4px);
+        z-index: 3;
+    }
+    .button-container:active {
+        transform: translate(2px, -2px);
+    }
+    .button-container:hover::after {
+        display: block;
+        content: '';
+        height: calc(10px + 6vmin);
+        width: 4px;
+        background-color: hotpink;
+        position: absolute;
+        left: -4px;
+        top: 2px;
+        transform: skewY(-45deg);
+    }
+    .button-container:hover::before {
+        display: block;
+        content: '';
+        height: 4px;
+        width: calc(10px + 6vmin);
+        background-color: #332288;
+        position: absolute;
+        left: -2px;
+        bottom: -4px;
+        transform: skewX(-45deg);
+    }
+    .button-container.disabled:hover {
+        cursor: default;
+        transform: none;
+        z-index: inherit;
+    }
+    .button-container.disabled:hover::before,
+    .button-container.disabled:hover::after {
+        display: none;
+    }
+    .button-container:active:hover::before {
+        left: -2px;
+    }
+    .button-container:active:hover::after {
+        bottom: -2px;
+    }
+}
+
+@media (hover: none) {
+    .App-header span {
+        touch-action: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .button-container {
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .button-container svg {
+        touch-action: none;
+        user-select: none;
+    }
+    .button-container:active::after {
+        display: block;
+        content: '';
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .button-container.disabled:active::after {
+        display: none;
+    }
+}
+
+.button {
+    fill: #f0e442;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0;
+}
+
+textarea#my-good-textarea {
+    font-size: calc(16px + 2vmin);
+    line-height: calc(20px + 2vmin);
+    width: 600px;
+    height: 100%;
+    flex: 1;
+    border: none;
+    padding: 4vmin;
+    box-sizing: border-box;
+    z-index: 4;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    font-family: Courier, monospace;
+    color: #170f40;
+}
+
+input.my-good-textarea:focus,
+textarea#my-good-textarea:focus {
+    outline: none !important;
+    box-shadow: inset 0px 0px 0 3px yellowgreen;
+}
+
+@media only screen and (max-width: 600px) {
+    .lettercounty {
+        padding: 0;
+    }
+
+    .App-header {
+        width: 100%;
+        font-size: calc(16px + 2vmin);
+    }
+
+    .button-container {
+        padding: 4vmin;
+        width: calc(24px + 2vmin);
+        height: calc(24px + 2vmin);
+    }
+
+    .button-container:hover::before {
+        width: calc(24px + 10vmin);
+    }
+
+    .button-container:hover::after {
+        height: calc(24px + 10vmin);
+    }
+
+    textarea#my-good-textarea {
+        height: 100%;
+        width: 100%;
+    }
+}
